@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Chal Mere Saathi · fully responsive</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- responsive video background -->
+    <video autoplay muted loop id="background-video">
+        <source src="vid.mp4" type="video/mp4">
+        <!-- fallback: silent if missing -->
+    </video>
+
+    <header>
+        <nav>
+            <h4>CHAL MERE SAATHI</h4>
+            <ul id="menu1">
+                <li><a href="Discover.html">Discover</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="special deals.html">Special Deals</a></li>
+                <li><a href="about us.html">About Us</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+            <i class="bi bi-three-dots"></i>
+        </nav>
+
+        <div class="content">
+            <div class="cont_box">
+                <h1>The Right Destination For You And Your Family</h1>
+                <p>We turn your travel dreams into reality.</p>
+                <button>Start your search</button>
+            </div>
+
+            <div class="trip_box">
+                <div class="search_box">
+                    <div class="card">
+                        <h4>Location <i class="bi bi-caret-down-fill"></i></h4>
+                        <input type="text" placeholder="Enter your Destination">
+                    </div>
+                    <div class="card">
+                        <h4>Date <i class="bi bi-caret-down-fill"></i></h4>
+                        <input type="date">
+                    </div>
+                    <div class="card">
+                        <h4>People <i class="bi bi-caret-down-fill"></i></h4>
+                        <input type="number" placeholder="How many People">
+                    </div>
+                    <input type="button" value="Explore now">
+                </div>
+
+                <div class="travel_box">
+                    <h4>States to travel</h4>
+                    <div class="cards">
+                        <!-- Kerala -->
+                        <div class="card">
+                            <h3>Kerala <img src="keralamap.jfif" alt="map"></h3>
+                            <img src="explorekerala.png" alt="Kerala">
+                            <div class="btn_city">
+                                <a href="#">ReadNow</a>
+                                <h5>Thiruvananthapuram<br><span>20000 rupees</span></h5>
+                            </div>
+                        </div>
+                        <!-- Rajasthan -->
+                        <div class="card">
+                            <h3>Rajasthan <img src="rajasthan.jpg" alt="map"></h3>
+                            <img src="rajasthan2.jpg" alt="Rajasthan">
+                            <div class="btn_city">
+                                <a href="#">ReadNow</a>
+                                <h5>Jaipur<br><span>30000 rupees</span></h5>
+                            </div>
+                        </div>
+                        <!-- Goa -->
+                        <div class="card">
+                            <h3>Goa <img src="goamap.jpg" alt="map"></h3>
+                            <img src="goa.jpg" alt="Goa">
+                            <div class="btn_city">
+                                <a href="#">ReadNow</a>
+                                <h5>Panji<br><span>45000 rupees</span></h5>
+                            </div>
+                        </div>
+                        <!-- Himachal -->
+                        <div class="card">
+                            <h3>Himachal Pradesh <img src="himachalmap.jpg" alt="map"></h3>
+                            <img src="himachal.jpg" alt="Himachal">
+                            <div class="btn_city">
+                                <a href="#">ReadNow</a>
+                                <h5>Shimla<br><span>42000 rupees</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end travel_box -->
+            </div> <!-- end trip_box -->
+        </div> <!-- end content -->
+    </header>
+
+    <!-- OFFERS section – fully repaired (structure & nesting) -->
+    <div class="offers">
+        <h1>Best tour package offers for you</h1>
+        <p>Choose your next destination</p>
+        <div class="cards">
+            <!-- card 1 -->
+            <div class="card">
+                <h3>Lotus-Delhi</h3>
+                <div class="img_text">
+                    <img src="lotus-temple.jpg" alt="lotus">
+                    <h4>Included: Airticket, Hotel, Breakfast, Tour, Airport Transfer</h4>
+                </div>
+                <div class="cont_bx">
+                    <div class="price">
+                        <div class="heart_chat">
+                            <i class="bi bi-heart-fill"><span>86415</span></i>
+                            <i class="bi bi-chat-fill"><span>4584</span></i>
+                        </div>
+                        <div class="info_price">
+                            <a href="#">More Info</a>
+                            <h4>₹15000</h4>
+                        </div>
+                    </div>
+                    <div class="dayes">5 Days<br>India</div>
+                </div>
+            </div>
+            <!-- card 2 -->
+            <div class="card">
+                <h3>Tranquil bliss-Mysore</h3>
+                <div class="img_text">
+                    <img src="maysore2.jfif" alt="mysore">
+                    <h4>Included: Airticket, Hotel, Breakfast, Tour, Airport Transfer</h4>
+                </div>
+                <div class="cont_bx">
+                    <div class="price">
+                        <div class="heart_chat">
+                            <i class="bi bi-heart-fill"><span>86415</span></i>
+                            <i class="bi bi-chat-fill"><span>4584</span></i>
+                        </div>
+                        <div class="info_price">
+                            <a href="#">More Info</a>
+                            <h4>₹15000</h4>
+                        </div>
+                    </div>
+                    <div class="dayes">5 Days<br>India</div>
+                </div>
+            </div>
+            <!-- card 3 -->
+            <div class="card">
+                <h3>Badami-Karnataka</h3>
+                <div class="img_text">
+                    <img src="karnataka.jfif" alt="badami">
+                    <h4>Included: Airticket, Hotel, Breakfast, Tour, Airport Transfer</h4>
+                </div>
+                <div class="cont_bx">
+                    <div class="price">
+                        <div class="heart_chat">
+                            <i class="bi bi-heart-fill"><span>86415</span></i>
+                            <i class="bi bi-chat-fill"><span>4584</span></i>
+                        </div>
+                        <div class="info_price">
+                            <a href="#">More Info</a>
+                            <h4>₹15000</h4>
+                        </div>
+                    </div>
+                    <div class="dayes">5 Days<br>India</div>
+                </div>
+            </div>
+            <!-- card 4 -->
+            <div class="card">
+                <h3>Darjeeling-WB</h3>
+                <div class="img_text">
+                    <img src="darjeeling.jpg" alt="darjeeling">
+                    <h4>Included: Airticket, Hotel, Breakfast, Tour, Airport Transfer</h4>
+                </div>
+                <div class="cont_bx">
+                    <div class="price">
+                        <div class="heart_chat">
+                            <i class="bi bi-heart-fill"><span>86415</span></i>
+                            <i class="bi bi-chat-fill"><span>4584</span></i>
+                        </div>
+                        <div class="info_price">
+                            <a href="#">More Info</a>
+                            <h4>₹15000</h4>
+                        </div>
+                    </div>
+                    <div class="dayes">5 Days<br>India</div>
+                </div>
+            </div>
+        </div> <!-- end offers .cards -->
+    </div> <!-- end offers -->
+
+    <!-- destination section -->
+    <div class="destination">
+        <div class="des_box">
+            <h4>Our Destination</h4>
+            <p>Choose your next destination</p>
+            <li>Amritsar</li>
+            <li>Mumbai</li>
+            <li>Madurai</li>
+            <li>Ujjain</li>
+            <li>Pune</li>
+            <li>Puducherry</li>
+            <h6>Included: Airticket, Hotel, Breakfast, Tour, Airport Transfer</h6>
+            <button>MORE INFO</button>
+        </div>
+        <div class="img_box">
+            <img src="plane.jpg" alt="">
+            <div class="msg">
+                <img src="india.jfif" alt="">
+                <div class="cont">
+                    <h4>India</h4>
+                    <div class="icon">
+                        <i class="bi bi-heart-fill"><span>86415</span></i>
+                        <i class="bi bi-chat-fill"><span>4584</span></i>
+                    </div>
+                </div>
+            </div>
+            <div class="msg">
+                <img src="r.jpg" alt="">
+                <div class="cont">
+                    <h4>Rajasthan</h4>
+                    <div class="icon">
+                        <i class="bi bi-heart-fill"><span>86415</span></i>
+                        <i class="bi bi-chat-fill"><span>4584</span></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+         <div class="input">
+            <input type="text" placeholder="Enter your Email Address">
+            <button>Subscribe</button>
+        </div>
+        <h2>Subscribe & <br> get special discount</h2>
+        <p>Travel opens your heart and mind, letting you explore new places, experience different cultures, and create
+            unforgettable memories that stay with you forever.</p>
+       
+        <ul>
+        
+        </ul>
+    </footer>
+     <footer><p>join the saathi family · register for free</p>
+    
+    
+  <div class="container">
+   <b> <p>
+      &copy; <span id="year"></span> Chal Mere sathi. All rights reserved.
+    </p>
+    </b>
+    <b><p>Made by Sanjay Choudhary and Team(under Fayaz Sir )</p>
+    
+</b>
+        <p>
+
+        For person use Website only(Dummy Website)
+    </p>
+  </div>
+
+
+<script>
+  // This updates the year automatically
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+    
+    </footer>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>

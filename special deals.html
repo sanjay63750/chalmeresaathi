@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Deals · Chal Mere Saathi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family: 'Segoe UI',sans-serif;}
+        body{background:#0c1c2c;color:white;}
+        #background-video{position:fixed;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:0.3;}
+        .layer{position:fixed;inset:0;background:rgba(0,10,25,0.7);z-index:-1;}
+        nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 6%;background:rgba(0, 0, 0, 0.3);backdrop-filter:blur(8px);}
+        nav h4{font-size:1.8rem;color:#fff;}
+        #menu1{display:flex;gap:2rem;list-style:none;}
+        #menu1 a{text-decoration:none;color:#eef6ff;border-bottom:2px solid transparent;}
+        #menu1 a:hover{border-bottom-color:#f5b042;}
+        .bi-three-dots{font-size:2rem;color:#fff;display:none;}
+        @media (max-width:800px){#menu1{display:none;}.bi-three-dots{display:block;}}
+        .deals-header{text-align:center;padding:2rem;font-size:2.5rem;font-weight:300;color:#ffddb0;}
+        .deal-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+            gap:2rem;
+            padding:2rem 6% 4rem;
+        }
+        .deal-card{
+            background:rgba(20, 40, 55, 0.8);
+            backdrop-filter:blur(10px);
+            border-radius:35px;
+            padding:1.6rem;
+            border:2px solid #ffa72650;
+            transition:0.2s;
+        }
+        .deal-card:hover{border-color:#ffa726;transform:scale(1.02);}
+        .badge{background:#d43f1d;width:fit-content;padding:0.2rem 1.2rem;border-radius:40px;font-weight:600;margin-bottom:1rem;}
+        .price-big{font-size:2.5rem;font-weight:600;color:#ffb461;}
+        .old-price{text-decoration:line-through;color:#aaa;margin-left:0.5rem;}
+        .deal-card ul{margin:1rem 0;list-style-type: none;}
+        .deal-card li{margin:0.3rem 0;}
+        .deal-card button{width:100%;padding:0.8rem;border-radius:40px;background:#ffb347;border:none;font-weight:bold;font-size:1.2rem;cursor:pointer;}
+        .offer-tag{font-size:1.2rem;background:#2f7345;padding:0.2rem 1rem;border-radius:30px;display:inline-block;}
+        footer{background:#03121f;padding:2rem;text-align:center;border-top:1px solid #354e5e;}
+    </style>
+</head>
+<body>
+    <video autoplay muted loop id="background-video"><source src="vid.mp4" type="video/mp4"></video>
+    <div class="layer"></div>
+    <nav>
+        <h4>CHAL MERE SAATHI</h4>
+        <ul id="menu1">
+            <li><a href="Discover.html">Discover</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="special deals.html">Special Deals</a></li>
+            <li><a href="about us.html">About Us</a></li>
+            <li><a href="register.html">Register</a></li>
+        </ul>
+        <i class="bi bi-three-dots"></i>
+    </nav>
+
+    <div class="deals-header">🔥 limited time offers · grab before they’re gone</div>
+
+    <div class="deal-grid">
+        <div class="deal-card">
+            <div class="badge">⭐ bestseller</div>
+            <span class="offer-tag">30% off</span>
+            <h2>Andaman escape</h2>
+            <p>6D/5N · radhanagar beach, cellular jail</p>
+            <div><span class="price-big">₹44,999</span><span class="old-price">₹62,000</span></div>
+            <ul><li>✅ flight + hotel</li><li>✅ breakfast & cruise</li><li>✅ free scuba</li></ul>
+            <button>book now</button>
+        </div>
+        <div class="deal-card">
+            <div class="badge">⚡ flash sale</div>
+            <span class="offer-tag">45% off</span>
+            <h2>Kashmir houseboat</h2>
+            <p>5D/4N · dal lake, gulmarg</p>
+            <div><span class="price-big">₹29,999</span><span class="old-price">₹55,000</span></div>
+            <ul><li>✅ shikara ride</li><li>✅ houseboat stay</li><li>✅ gondola ride</li></ul>
+            <button>grab deal</button>
+        </div>
+        <div class="deal-card">
+            <span class="offer-tag">family special</span>
+            <h2>Goa getaway</h2>
+            <p>4D/3N · north goa, water sports</p>
+            <div><span class="price-big">₹19,999</span><span class="old-price">₹30,000</span></div>
+            <ul><li>✅ 4* resort</li><li>✅ candlelight dinner</li><li>✅ 2 free kids</li></ul>
+            <button>book family</button>
+        </div>
+        <div class="deal-card">
+            <div class="badge">💼 corporate</div>
+            <span class="offer-tag">20% off</span>
+            <h2>Mumbai · luxury</h2>
+            <p>3N · taj hotel + dharavi slum tour</p>
+            <div><span class="price-big">₹26,500</span><span class="old-price">₹33,000</span></div>
+            <ul><li>✅ airport transfer</li><li>✅ bollywood tour</li></ul>
+            <button>view offer</button>
+        </div>
+    </div>
+    <footer><p>prices incl. taxes · limited seats · special deals just for you</p></footer>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover · Chal Mere Saathi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+        body {
+            background: #0b1b2b;
+            min-height: 100vh;
+            color: #fff;
+        }
+        /* consistent background video or fallback */
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            opacity: 0.5;
+        }
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 15, 30, 0.7);
+            z-index: -1;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 6%;
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        nav h4 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        #menu1 {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+        }
+        #menu1 a {
+            text-decoration: none;
+            color: #f0f9ff;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+        #menu1 a:hover {
+            border-bottom-color: #ffb347;
+            color: #ffd966;
+        }
+        .bi-three-dots {
+            font-size: 2rem;
+            color: white;
+            display: none;
+        }
+        /* discover header */
+        .discover-hero {
+            text-align: center;
+            padding: 3rem 2rem 1rem;
+        }
+        .discover-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 400;
+            background: linear-gradient(135deg, #fff8e7, #ffe5b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .discover-hero p {
+            color: #ccc;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+        /* filter bar */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 5%;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(12px);
+            border-radius: 60px;
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+        .filter-bar select, .filter-bar input {
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            border: none;
+            background: rgba(0,20,40,0.7);
+            color: white;
+            font-size: 1rem;
+            border: 1px solid #ffb34770;
+            outline: none;
+            cursor: pointer;
+        }
+        .filter-bar button {
+            background: #f0b348;
+            border: none;
+            padding: 0.8rem 2.2rem;
+            border-radius: 40px;
+            font-weight: bold;
+            color: #0b1b2b;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        .filter-bar button:hover {
+            background: #ffa01c;
+            transform: scale(1.02);
+        }
+        /* cards grid */
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            padding: 2rem 6% 4rem;
+        }
+        .dest-card {
+            background: rgba(20, 35, 55, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,200,0.15);
+            transition: 0.3s;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.6);
+        }
+        .dest-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffb85b;
+        }
+        .dest-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-bottom: 2px solid #ffb34740;
+        }
+        .dest-info {
+            padding: 1.2rem;
+        }
+        .dest-info h3 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #ffe2a4;
+        }
+        .dest-info p {
+            color: #b0d4f0;
+            margin: 0.4rem 0;
+            font-size: 0.95rem;
+        }
+        .dest-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        .price {
+            color: #f5b042;
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+        .dest-price i {
+            color: #ff6961;
+            margin-right: 5px;
+        }
+        footer {
+            background: #03121f;
+            padding: 3rem 6%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #2b404e;
+        }
+        @media (max-width: 800px) {
+            #menu1 { display: none; }
+            .bi-three-dots { display: block; }
+            .filter-bar { border-radius: 30px; }
+            .discover-hero h1 { font-size: 2.4rem; }
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop id="background-video"><source src="vid.mp4" type="video/mp4"></video>
+    <div class="overlay"></div>
+
+    <nav>
+        <h4>CHAL MERE SAATHI</h4>
+        <ul id="menu1">
+            <li><a href="Discover.html">Discover</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="special deals.html">Special Deals</a></li>
+            <li><a href="about us.html">About Us</a></li>
+            <li><a href="register.html">Register</a></li>
+        </ul>
+        <i class="bi bi-three-dots"></i>
+    </nav>
+
+    <div class="discover-hero">
+        <h1>✨ discover your next story ✨</h1>
+        <p>handpicked destinations • hidden gems • cultural treasures</p>
+    </div>
+
+    <div class="filter-bar">
+        <select><option>🏝️ all regions</option><option>north india</option><option>south india</option><option>east</option><option>west</option></select>
+        <select><option>📅 travel month</option><option>jan</option><option>feb</option><option>mar</option></select>
+        <input type="text" placeholder="🔍 search destination">
+        <button>filter</button>
+    </div>
+
+    <div class="destinations-grid">
+        <!-- card 1 -->
+        <div class="dest-card">
+            <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=400&auto=format" alt="Leh">
+            <div class="dest-info">
+                <h3>Leh-Ladakh</h3>
+                <p>⚡ 4.9 (12k reviews) · best for adventure</p>
+                <p>magnetic hills, pangong lake, buddhist monasteries</p>
+                <div class="dest-price"><span class="price">₹18,999</span> <i class="bi bi-suit-heart-fill"></i> 9.2k </div>
+            </div>
+        </div>
+        <div class="dest-card">
+            <img src="https://images.unsplash.com/photo-1566552881560-0be862a7c445?w=400&auto=format" alt="varanasi">
+            <div class="dest-info">
+                <h3>Varanasi</h3>
+                <p>🕉️ 4.8 (9k reviews) · spiritual capital</p>
+                <p>ganga aarti, old city, timeless ghats</p>
+                <div class="dest-price"><span class="price">₹11,499</span> <i class="bi bi-suit-heart-fill"></i> 7.8k</div>
+            </div>
+        </div>
+        <div class="dest-card">
+            <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=400&auto=format" alt="coorg">
+            <div class="dest-info">
+                <h3>Coorg</h3>
+                <p>☕ 4.7 (6.2k reviews) · coffee estates</p>
+                <p>misty hills, waterfalls, irish vibe</p>
+                <div class="dest-price"><span class="price">₹14,200</span> <i class="bi bi-suit-heart-fill"></i> 5.5k</div>
+            </div>
+        </div>
+        <div class="dest-card">
+            <img src="https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=400&auto=format" alt="kerala">
+            <div class="dest-info">
+                <h3>Alleppey</h3>
+                <p>🛶 4.9 (15k reviews) · backwaters</p>
+                <p>houseboat, serene lagoons, coconut palms</p>
+                <div class="dest-price"><span class="price">₹21,000</span> <i class="bi bi-suit-heart-fill"></i> 12k</div>
+            </div>
+        </div>
+        <div class="dest-card">
+            <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=400&auto=format" alt="meghalaya">
+            <div class="dest-info">
+                <h3>Meghalaya</h3>
+                <p>🌧️ 4.8 (4.1k reviews) · living root bridges</p>
+                <p>cherrapunji, mawsynram, caves</p>
+                <div class="dest-price"><span class="price">₹16,800</span> <i class="bi bi-suit-heart-fill"></i> 4k</div>
+            </div>
+        </div>
+        <div class="dest-card">
+            <img src="https://images.unsplash.com/photo-1565019011526-6e5b3e8c3e3b?w=400&auto=format" alt="hampi">
+            <div class="dest-info">
+                <h3>Hampi</h3>
+                <p>🏛️ 4.8 (7.3k) · ruins & boulders</p>
+                <p>vijayanagara empire, sunrise point</p>
+                <div class="dest-price"><span class="price">₹9,999</span> <i class="bi bi-suit-heart-fill"></i> 6.1k</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <h2>Let’s wander ✦ discover daily</h2>
+        <p>© discover · Chal Mere Saathi</p>
+    </footer>
+</body>
+</html>

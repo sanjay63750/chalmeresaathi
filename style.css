@@ -1,0 +1,840 @@
+
+        /* === complete reset & fonts === */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #111;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* === video background – covers full viewport === */
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        /* === main glass panel === */
+        header {
+            width: 95%;
+            max-width: 1400px;
+            margin: 2rem auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(3px);
+            border-radius: 2rem 2rem 1.5rem 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* === navigation – flex with hamburger (three‑dots) === */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            gap: 1rem 0.5rem;
+        }
+
+        nav h4 {
+            font-size: clamp(1.1rem, 3.5vw, 1.8rem);
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 1px 1px 2px black;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 0.3rem 0.8rem;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: clamp(0.8rem, 2.2vw, 1rem);
+            padding: 0.4rem 0.8rem;
+            transition: 0.2s;
+            white-space: nowrap;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 40px;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background: blueviolet;
+            color: white;
+        }
+
+        nav ul li:nth-last-child(1) a {
+            background: black;
+            color: white;
+            border: 1px solid white;
+        }
+
+        nav ul li:nth-last-child(1) a:hover {
+            background: #333;
+        }
+
+        nav .bi-three-dots {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* main content area with travel.jpg background */
+        .content {
+            position: relative;
+            padding: 1rem 1.5rem 2.5rem;
+            background: url('travel.jpg.jpg') no-repeat center center / cover;
+            border-radius: 0 0 1.5rem 1.5rem;
+            isolation: isolate;
+        }
+
+        .content::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: inherit;
+            z-index: -1;
+        }
+
+        /* intro text */
+        .cont_box {
+            max-width: 600px;
+            color: white;
+            padding: 2rem 0.5rem 1.5rem 0.5rem;
+        }
+
+        .cont_box h1 {
+            font-size: clamp(1.8rem, 6vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.2;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        .cont_box p {
+            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+            font-weight: 400;
+            color: #ffe484;
+            margin: 0.5rem 0;
+        }
+
+        .cont_box button {
+            background: black;
+            border: 2px solid white;
+            color: white;
+            padding: 0.8rem 2.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 1rem;
+        }
+
+        .cont_box button:hover {
+            background: white;
+            color: black;
+            border-color: black;
+        }
+
+        /* === search box – fully responsive flex wrap === */
+        .trip_box {
+            margin-top: 2rem;
+        }
+
+        .search_box {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(4px);
+            padding: 1.2rem 1.8rem;
+            border-radius: 60px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            max-width: 1000px;
+            margin-bottom: 2.5rem;
+        }
+
+        .search_box .card {
+            flex: 1 1 160px;
+            min-width: 140px;
+        }
+
+        .search_box .card h4 {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 1rem;
+            color: #222;
+            font-weight: 700;
+        }
+
+        .search_box .card input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #aaa;
+            background: transparent;
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .search_box input[type="button"] {
+            background: black;
+            border: none;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            transition: 0.2s;
+            border: 1px solid black;
+        }
+
+        .search_box input[type="button"]:hover {
+            background: turquoise;
+            color: black;
+            border-color: turquoise;
+        }
+
+        /* === travel_box – cards grid (states) === */
+        .travel_box {
+            background: rgba(245, 245, 245, 0.5);
+            backdrop-filter: blur(8px);
+            border-radius: 2rem;
+            padding: 1.5rem 1rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .travel_box h4 {
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            font-weight: 700;
+            color: #0b0b0b;
+            padding-left: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        /* cards wrapper – flex grid */
+        .travel_box .cards {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: stretch;
+            gap: 1.5rem 1rem;
+        }
+
+        .travel_box .cards .card {
+            flex: 0 1 220px;
+            min-width: 180px;
+            max-width: 260px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(2px);
+            border-radius: 1.5rem;
+            padding: 1rem 0.8rem 1.2rem;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .travel_box .cards .card:hover {
+            transform: scale(1.02);
+        }
+
+        .card h3 {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .card h3 img {
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            border: 1px solid #aaa;
+        }
+
+        .card>img {
+            width: 100%;
+            height: 120px;
+            border-radius: 1rem;
+            object-fit: cover;
+            margin-bottom: 8px;
+        }
+
+        .btn_city {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-top: 0.3rem;
+        }
+
+        .btn_city a {
+            background: black;
+            color: white;
+            text-decoration: none;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn_city a:hover {
+            background: darkslategray;
+        }
+
+        .btn_city h5 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-align: right;
+            line-height: 1.3;
+        }
+
+        .btn_city span {
+            font-weight: 800;
+            display: block;
+            font-size: 1rem;
+        }
+
+        /* === OFFERS section – completely repaired structure & responsive === */
+        .offers {
+            width: 95%;
+            max-width: 1300px;
+            margin: 3rem auto 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+            border-radius: 2.5rem;
+            padding: 2rem 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .offers h1 {
+            text-align: center;
+            font-size: clamp(1.8rem, 5vw, 2.6rem);
+            font-weight: 700;
+            color: #f3d37c;
+            margin-bottom: 0.3rem;
+        }
+
+        .offers>p {
+            text-align: center;
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            font-weight: 500;
+            color: #cfe2ff;
+            margin-bottom: 2rem;
+        }
+
+        /* cards grid inside offers — fixed nesting & missing containers */
+        .offers .cards {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            gap: 1.8rem 1.5rem;
+        }
+
+        .offers .cards .card {
+            flex: 0 1 240px;
+            max-width: 260px;
+            background: rgba(20, 20, 30, 0.7);
+            backdrop-filter: blur(4px);
+            border-radius: 1.8rem;
+            padding: 1rem 0.8rem 1rem;
+            box-shadow: 0 15px 25px -8px black;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: 0.2s;
+        }
+
+        .offers .cards .card:hover {
+            transform: translateY(-6px);
+        }
+
+        .offers .card h3 {
+            background: #9ef0b0;
+            color: #111;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 0.7rem;
+            border: 1px solid white;
+        }
+
+        .offers .img_text {
+            position: relative;
+            width: 100%;
+            height: 160px;
+            border-radius: 1.2rem;
+            overflow: hidden;
+        }
+
+        .offers .img_text img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .offers .img_text h4 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 1rem 0.7rem 0.5rem;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .offers .cont_bx {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.8rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 2rem;
+            padding: 0.4rem 0.6rem 0.4rem 1rem;
+        }
+
+        .price .heart_chat {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .heart_chat i {
+            font-size: 0.8rem;
+            color: #ddd;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .heart_chat i span {
+            font-style: normal;
+            font-size: 0.7rem;
+            color: white;
+        }
+
+        .heart_chat i:nth-child(1) {
+            color: #ff5e5e;
+        }
+
+        .heart_chat i:nth-child(2) {
+            color: #5ea7ff;
+        }
+
+        .info_price {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 0.2rem;
+        }
+
+        .info_price a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 700;
+            background: #2c2c3a;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            transition: 0.2s;
+        }
+
+        .info_price a:hover {
+            background: #575787;
+        }
+
+        .info_price h4 {
+            font-size: 0.95rem;
+            color: #f5c764;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .cont_bx .dayes {
+            background: black;
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 600;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1.2;
+            border: 2px solid gold;
+            transition: 0.3s;
+            cursor: default;
+        }
+
+        .cont_bx .dayes:hover {
+            transform: rotate(160deg);
+            border-color: white;
+        }
+
+        /* === DESTINATION section – fixed broken layout === */
+        .destination {
+            width: 95%;
+            max-width: 1200px;
+            margin: 3rem auto 2rem;
+            background: rgba(10, 20, 30, 0.7);
+            backdrop-filter: blur(5px);
+            border-radius: 2.5rem;
+            padding: 1.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .destination .des_box {
+            flex: 1 1 280px;
+            min-width: 240px;
+            color: white;
+        }
+
+        .destination .des_box h4 {
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
+            font-weight: 700;
+            color: #fad974;
+            line-height: 1.2;
+            margin-bottom: 0.4rem;
+        }
+
+        .destination .des_box p {
+            font-size: 1rem;
+            color: #c4e0ff;
+            margin-bottom: 1.2rem;
+        }
+
+        .destination .des_box li {
+            list-style: none;
+            font-size: 1rem;
+            font-weight: 400;
+            padding: 0.2rem 0;
+            border-bottom: 1px dashed #ccc;
+            max-width: 240px;
+        }
+
+        .destination .des_box h6 {
+            font-size: 0.9rem;
+            font-weight: 500;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 0.8rem 1rem;
+            border-radius: 2rem;
+            margin: 1.2rem 0 0.8rem;
+            border: 1px solid turquoise;
+            display: inline-block;
+        }
+
+        .destination .des_box button {
+            background: black;
+            border: 2px solid white;
+            color: white;
+            padding: 0.6rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 0.3rem;
+        }
+
+        .destination .des_box button:hover {
+            background: gold;
+            color: black;
+            border-color: gold;
+        }
+
+        .destination .img_box {
+            flex: 1 1 280px;
+            min-height: 200px;
+            background: url('travel.jpg.jpg') no-repeat center center / cover;
+            border-radius: 2rem;
+            border: 4px solid white;
+            box-shadow: 0 10px 30px black;
+            aspect-ratio: 4/3;
+        }
+
+        /* responsive fine-tuning */
+        @media (max-width: 800px) {
+            nav .bi-three-dots {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                /* hide menu on mobile (three‑dots pattern) */
+                width: 100%;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.8);
+                padding: 1rem;
+                border-radius: 1rem;
+            }
+
+            /* demo: we keep it accessible, but for this layout we keep menu hidden behind dots.
+         you could add js toggle, but out of scope – we keep it present in html but hidden via display none.
+         to show on very small screens, you might override, but for correctness we preserve visual:
+         we want design to be flexible, not broken.
+         I'll make ul visible on small screens as column, otherwise it's inaccessible. Better to keep visible */
+            nav ul {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .bi-three-dots {
+                display: none !important;
+                /* hide icon, we keep nav items */
+            }
+        }
+
+        @media (max-width: 550px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .search_box {
+                border-radius: 2rem;
+                padding: 1.2rem 1rem;
+            }
+
+            .offers .cards .card {
+                flex: 0 1 100%;
+                max-width: 300px;
+            }
+
+            .destination .img_box {
+                width: 100%;
+            }
+        }
+
+        /* repair extra .cards nesting from original (any hidden side effect) */
+        .cards .cards {
+            all: unset;
+            display: contents;
+        }
+
+        /* fallback for missing images: use colored background */
+        img[src="keralamap.jfif"],
+        img[src="rajasthan.jpg"],
+        img[src="goamap.jpg"],
+        img[src="himachalmap.jpg"],
+        img[src="explorekerala.png"],
+        img[src="rajasthan2.jpg"],
+        img[src="goa.jpg"],
+        img[src="himachal.jpg"],
+        img[src="lotus-temple.jpg"],
+        img[src="maysore2.jfif"],
+        img[src="karnataka.jfif"],
+        img[src="darjeeling.jpg"] {
+            background: #aaa;
+            min-height: 30px;
+        }
+
+        /* polish */
+        .card h3 img {
+            background: #ccc;
+        }
+        .destination .img_box img {
+            width: 100%;
+            height: 404px;
+            border-radius: 10px;
+        }
+         .destination .img_box .msg{
+            position: absolute;
+            top: 140px; 
+            right: 55px;  
+            width: 160px;
+            height: 50px;
+            background-color: #fff;
+            box-shadow: 0px 5px 20px gray;
+            display: flex;
+             align-items: centre;
+             border-radius: 5px;
+             padding: 0px 10px;
+         }
+          .destination .img_box .msg img{
+            width: 33px;
+            height: 55%;
+          }
+           .destination .img_box .msg .cont {
+            margin-left: 15px;
+           }
+           .destination .img_box .msg .cont h4{
+            margin: 0;
+            font-size: 15px;
+            font-weight: 500;
+
+           }
+            .destination .img_box .msg .cont .bi:nth-child(1){
+                color: red;
+                margin-right: 5px;
+                font-size: 13px;
+            }
+             .destination .img_box .msg .cont .bi span{
+                font-style: normal;
+                margin-left: 3px;
+                font-size: 12px;
+                color: gray;
+             }
+              .destination .img_box .msg .cont .bi:nth-child(2){
+                color: rgb(112, 196, 229);
+                margin-right: 3px;
+                font-size: 12px;
+
+              }
+              .destination .img_box .msg:nth-child(2){
+                top: 10%;
+                left: 55%;
+              }
+              footer {
+                width: 100%;
+                height: auto;
+                background-color: rgb(249, 249, 255);
+                margin-top: 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+              }
+              footer h2{
+                text-align: center;
+                margin: 0;
+                margin-top: 30px;
+                line-height: 30px;
+                font-weight: 600;
+
+              }
+              footer p{
+                text-align: center;
+                width: 400px;
+                font-size: 13px;
+              }
+              footer .input{
+                box-shadow: 0px 3px 20px -1px red;
+                border-radius: 20px;
+                margin-top: 20px;
+
+              }
+              footer .input input{
+                padding: 10px 20px;
+                border: none;
+                outline: none;
+                font-size: 12px;
+                border-radius: 20px 0px 0px 20px;
+            
+              }
+              footer .input button{
+                padding: 10px 20px;
+                border: none;
+                outline: none;
+                font-size: 12px;
+                border-radius: 0px 20px 20px 0px;
+                background-color: #000;
+                color: #fff;
+                cursor: pointer;
+                transition: .3s linear;
+            
+
+              }
+              footer .input button:hover{
+                background-color: gray;
+
+              }
+
+              footer ul{
+                list-style: none;
+                display: flex;
+                /* align-items: center; */
+                margin-top: 30px;
+
+              }
+              footer ul li{
+                text-align: center;
+                margin-right: 30px;
+                font-weight: bold;
+
+              }
+              footer ul li h6{
+                font-size: 11px;
+                font-weight: 600;
+                max-width: 120px;
+                margin: 0;
+                line-height: 10px;
+                border-top:  1px solid black;
+                padding: 3px;
+              }
+              /*javascript class*/
+              header nav .ul :active
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
